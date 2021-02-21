@@ -1,5 +1,6 @@
-package com.example.modernfoodrecipesapp
+package com.example.modernfoodrecipesapp.data
 
+import com.example.modernfoodrecipesapp.data.network.FoodRecipesApi
 import com.example.modernfoodrecipesapp.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject

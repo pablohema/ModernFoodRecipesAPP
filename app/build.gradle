@@ -65,10 +65,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
 
     // Room Components
-    implementation 'androidx.room:room-runtime:2.2.5'
-    kapt "androidx.room: room-compiler:2.2.5"
-    implementation "androidx.room:room-ktx:2.2.5"
-    androidTestImplementation "androidx.room:room-testing:2.2.5"
+    implementation 'androidx.room:room-runtime:2.2.6'
+    kapt "androidx.room:room-compiler:2.2.5"
+    implementation "androidx.room:room-ktx:2.2.6"
+    androidTestImplementation "androidx.room:room-testing:2.2.6"
 
     // Data Binding
     kapt "com.android.databinding:compiler:3.2.0-alpha10"

@@ -27,7 +27,7 @@ class MainViewModel @ViewModelInject constructor(
 
     private suspend fun getRecipesSafeCall(queries: Map<String, String>) {
         recipesResponse.value = NetworkResult.Loading()
-        if(hasInternetConnection()){
+        if (hasInternetConnection()) {
             try {
                 val response = repository.remote.getRecipes(queries)
                 recipesResponse.value = handleFoodRecipesResponse(response)
@@ -39,7 +39,10 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun handleFoodRecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {
+    private fun handleFoodRecipesResponse(
+        response: Response<FoodRecipe>
+    ): NetworkResult<FoodRecipe>? {
+
         when {
             response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("Timeout")
@@ -50,7 +53,7 @@ class MainViewModel @ViewModelInject constructor(
             }
 
             response.body()!!.results.isNullOrEmpty() -> {
-                return NetworkResult.Error("Recipues not found")
+                return NetworkResult.Error("Recipes not found")
             }
 
             response.isSuccessful -> {

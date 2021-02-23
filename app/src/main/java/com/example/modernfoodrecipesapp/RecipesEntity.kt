@@ -9,7 +9,6 @@ import com.example.modernfoodrecipesapp.util.Constants.Companion.RECIPES_TABLE
 class RecipesEntity(
     var foodRecipe: FoodRecipe
 ) {
-
     @PrimaryKey(autoGenerate = false)
     var id: Int = 0
 }

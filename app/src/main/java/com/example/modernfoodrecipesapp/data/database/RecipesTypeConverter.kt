@@ -1,4 +1,4 @@
-package com.example.modernfoodrecipesapp
+package com.example.modernfoodrecipesapp.data.database
 
 import androidx.room.TypeConverter
 import com.example.modernfoodrecipesapp.models.FoodRecipe
@@ -19,5 +19,4 @@ class RecipesTypeConverter {
         val listType = object : TypeToken<FoodRecipe>() {}.type
         return gson.fromJson(data, listType)
     }
-
 }

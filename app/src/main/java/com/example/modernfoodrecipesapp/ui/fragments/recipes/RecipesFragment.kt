@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.modernfoodrecipesapp.R
 import com.example.modernfoodrecipesapp.adapters.RecipesAdapter
 import com.example.modernfoodrecipesapp.util.NetworkResult
+import com.example.modernfoodrecipesapp.util.observeOnce
 import com.example.modernfoodrecipesapp.viewmodels.MainViewModel
 import com.example.modernfoodrecipesapp.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,7 +56,7 @@ class RecipesFragment : Fragment() {
 
     private fun readDatabase() {
         lifecycleScope.launch {
-            mainViewModel.readRecipes.observe(
+            mainViewModel.readRecipes.observeOnce(
                 viewLifecycleOwner,
                 { database ->
                     if (database.isNotEmpty()) {

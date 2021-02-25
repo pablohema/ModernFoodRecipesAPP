@@ -2,7 +2,6 @@ package com.example.modernfoodrecipesapp.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.example.modernfoodrecipesapp.util.Constants
 import com.example.modernfoodrecipesapp.util.Constants.Companion.API_KEY
 import com.example.modernfoodrecipesapp.util.Constants.Companion.QUERY_ADD_RECIPE_INFORMATION
 import com.example.modernfoodrecipesapp.util.Constants.Companion.QUERY_APIKEY
@@ -18,8 +17,8 @@ class RecipesViewModel(application: Application) : AndroidViewModel(application)
 
         queries[QUERY_NUMBER] = "50"
         queries[QUERY_APIKEY] = API_KEY
-        queries[QUERY_TYPE] = "snack"
-        queries[QUERY_DIET] = "vegan"
+        queries[QUERY_TYPE] = "main course"
+        queries[QUERY_DIET] = "gluten free"
         queries[QUERY_ADD_RECIPE_INFORMATION] = "true"
         queries[QUERY_FILL_INGREDIENTS] = "true"
 

@@ -18,12 +18,12 @@ class NetworkListener : ConnectivityManager.NetworkCallback() {
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         connectivityManager.registerDefaultNetworkCallback(this)
 
-        val isConnected = false
+        var isConnected = false
 
         connectivityManager.allNetworks.forEach { network ->
             val networkCapability = connectivityManager.getNetworkCapabilities(network)
             networkCapability?.let {
-                if(it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                if (it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
                     isConnected = true
                     return@forEach
                 }

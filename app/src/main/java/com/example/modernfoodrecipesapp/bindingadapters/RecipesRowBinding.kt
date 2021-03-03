@@ -13,6 +13,7 @@ import com.example.modernfoodrecipesapp.R
 import com.example.modernfoodrecipesapp.ui.fragments.recipes.RecipesFragmentDirections
 import kotlin.Exception
 import com.example.modernfoodrecipesapp.models.Result
+import org.jsoup.Jsoup
 
 class RecipesRowBinding {
 
@@ -75,6 +76,15 @@ class RecipesRowBinding {
                         )
                     }
                 }
+            }
+        }
+
+        @BindingAdapter("parseHtml")
+        @JvmStatic
+        fun parseHtml(textView: TextView, description: String?) {
+            if (description != null) {
+                val desc = Jsoup.parse(description).text()
+                textView.text = desc
             }
         }
     }

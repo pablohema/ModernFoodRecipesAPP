@@ -1,7 +1,7 @@
 package com.example.modernfoodrecipesapp.data
 
 import com.example.modernfoodrecipesapp.data.database.RecipesDao
-import com.example.modernfoodrecipesapp.data.database.RecipesEntity
+import com.example.modernfoodrecipesapp.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

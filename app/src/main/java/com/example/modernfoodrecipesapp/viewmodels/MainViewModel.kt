@@ -7,7 +7,7 @@ import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.modernfoodrecipesapp.data.Repository
-import com.example.modernfoodrecipesapp.data.database.RecipesEntity
+import com.example.modernfoodrecipesapp.data.database.entities.RecipesEntity
 import com.example.modernfoodrecipesapp.models.FoodRecipe
 import com.example.modernfoodrecipesapp.util.NetworkResult
 import kotlinx.coroutines.Dispatchers

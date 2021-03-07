@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.modernfoodrecipesapp.R
 import com.example.modernfoodrecipesapp.adapters.FavoriteRecipesAdapter
+import com.example.modernfoodrecipesapp.databinding.FragmentFavoriteBinding
 import com.example.modernfoodrecipesapp.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_favorite.view.*
@@ -21,15 +22,21 @@ class FavoriteFragment : Fragment() {
     private val mAdapter: FavoriteRecipesAdapter by lazy { FavoriteRecipesAdapter() }
     private val mainViewModel: MainViewModel by viewModels()
 
+    private var _binding: FragmentFavoriteBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_recipes, container, false)
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mainViewModel = mainViewModel
+        binding.mAdapter = mAdapter
 
-        setupRecyclerView(view.favoriteRecipesRecyclerView)
+        setupRecyclerView(binding.favoriteRecipesRecyclerView)
 
         mainViewModel.readFavoriteRecipes.observe(
             viewLifecycleOwner,
@@ -38,11 +45,16 @@ class FavoriteFragment : Fragment() {
             }
         )
 
-        return view
+        return binding.root
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

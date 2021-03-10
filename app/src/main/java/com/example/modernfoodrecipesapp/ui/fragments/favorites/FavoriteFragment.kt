@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_recipes.view.*
 @AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
-    private val mAdapter: FavoriteRecipesAdapter by lazy { FavoriteRecipesAdapter() }
+    private val mAdapter: FavoriteRecipesAdapter by lazy { FavoriteRecipesAdapter(requireActivity()) } // ktlint-disable max-line-length
     private val mainViewModel: MainViewModel by viewModels()
 
     private var _binding: FragmentFavoriteBinding? = null

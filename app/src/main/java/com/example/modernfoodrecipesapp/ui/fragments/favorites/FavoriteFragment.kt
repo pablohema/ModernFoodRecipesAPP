@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.modernfoodrecipesapp.R
 import com.example.modernfoodrecipesapp.adapters.FavoriteRecipesAdapter
 import com.example.modernfoodrecipesapp.databinding.FragmentFavoriteBinding
 import com.example.modernfoodrecipesapp.viewmodels.MainViewModel
@@ -37,13 +36,6 @@ class FavoriteFragment : Fragment() {
         binding.mAdapter = mAdapter
 
         setupRecyclerView(binding.favoriteRecipesRecyclerView)
-
-        mainViewModel.readFavoriteRecipes.observe(
-            viewLifecycleOwner,
-            { favoritesEntity ->
-                mAdapter.setData(favoritesEntity)
-            }
-        )
 
         return binding.root
     }
